@@ -9,6 +9,14 @@ DropBox.prototype.init = function() {
     dropbox_area = document.createElement('div');
     dropbox_area.id = 'dropbox_area';
 
+    dropbox_button = document.createElement('input');
+    dropbox_button.id='dropbox_button';
+    dropbox_button.value='DropBox DataStorage';
+    dropbox_button.type='button';
+
+    dropbox_wui_wrapper = document.createElement('div');
+    dropbox_wui_wrapper.id = "dropbox_wui_wrapper";
+
     //login form
     var form = document.createElement('form');
     form.id = "dropbox_login_form";
@@ -45,7 +53,11 @@ DropBox.prototype.init = function() {
     dropbox_area.appendChild(form);
 
     $(document).ready(function(){
+        var bar = document.getElementById("bar");
+        bar.appendChild(dropbox_button);
         document.body.appendChild(dropbox_area);
+        document.body.appendChild(dropbox_wui_wrapper);
+        $("dropbox_wui_wrapper").modalPopLite({ openButton: '#dropbox_button', closeButton: '#close-btn' });
     });
 
     console.log("Ended building wui ...");
