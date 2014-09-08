@@ -4,6 +4,11 @@ DropBox.prototype.init = function() {
 
     console.log("Building wui ...");
 
+    //dropbox area
+
+    dropbox_area = document.createElement('div');
+    dropbox_area.id = 'dropbox_area';
+
     //login form
     var form = document.createElement('form');
     form.id = "dropbox_login_form";
@@ -37,8 +42,10 @@ DropBox.prototype.init = function() {
         form.appendChild(form_elements[index]);
     };
 
+    dropbox_area.appendChild(form);
+
     $(document).ready(function(){
-        document.body.appendChild(form);
+        document.body.appendChild(dropbox_area);
     });
 
     console.log("Ended building wui ...");
